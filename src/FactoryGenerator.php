@@ -270,8 +270,6 @@ class FactoryGenerator
         $factoryNamespace = Str::beforeLast($factoryQualifiedName, '\\');
         $contents = File::get(__DIR__ . '/../stubs/factory.stub');
         $contents = str_replace('{{ factoryNamespace }}', $factoryNamespace, $contents);
-        $contents = str_replace('{{ namespacedModel }}', $modelClass, $contents);
-        $contents = str_replace('{{ model }}', class_basename($modelClass), $contents);
         $contents = str_replace('            //', trim($definition, PHP_EOL), $contents);
 
         File::put($path, $contents);
